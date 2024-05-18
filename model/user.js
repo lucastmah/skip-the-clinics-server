@@ -66,4 +66,6 @@ class UserQueue {
       });
       return userQueue;
     }
-  }
+}
+
+module.exports = { User, UserQueue };
