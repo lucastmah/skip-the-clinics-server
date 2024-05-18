@@ -7,6 +7,10 @@ app.get('/', (req, res) => {
   res.send('Hello, world!');
 });
 
+app.post('/create', (req, res) => {
+    
+});
+
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
