@@ -1,0 +1,36 @@
+{
+    "users": [
+        {
+            "name": "james hoten",
+            "healthNumber": "123224",
+            "username": "jamesy",
+            "password": "asdwnq",
+            "dateOfBirth": "1999-02-06",
+            "token": ""
+        },
+        {
+            "name": "el dans",
+            "healthNumber": "12324",
+            "username": "dansy",
+            "password": "smaenwlk",
+            "dateOfBirth": "1993-10-15",
+            "token": ""
+        },
+        {
+            "name": "hornby bob",
+            "healthNumber": "122234",
+            "username": "samewn",
+            "password": "asdln",
+            "dateOfBirth": "1994-08-09",
+            "token": ""
+        },
+        {
+            "name": "mona lisa",
+            "healthNumber": "12304",
+            "username": "louvre",
+            "password": "stankman",
+            "dateOfBirth": "1999-01-05",
+            "token": ""
+        }
+    ]
+}

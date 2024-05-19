@@ -1,33 +1,13 @@
-class User {
-    constructor(name, id, username, password, dateOfBirth) {
-      this._name = name;
-      this._id = id;
-      this._username = username;
-      this._password = password;
-      this._dateOfBirth = dateOfBirth;
-    }
-
-    // Encode the instance to JSON
-  toJSON() {
-    return JSON.stringify({
-      name: this._name,
-      id: this._id,
-      username: this._username,
-      password: this._password,
-      dateOfBirth: this._dateOfBirth
-    });
-  }
-
-  // Decode JSON to an instance of User
-  static fromJSON(json) {
-    const data = JSON.parse(json);
-    return new User(data.name, data.id, data.username, data.password, data.dateOfBirth);
+export class User {
+  construc
+  tor(options = {}) {
+    Object.assign(this, options);
   }
 }
 
-class UserQueue {
+export class UserQueue {
     constructor() {
-      this.queue = [];
+      this.list = [];
     }
   
     // Add a user to the end of the queue
@@ -35,29 +15,31 @@ class UserQueue {
       if (!this.queue.includes(userId)) {
         this.queue.push(userId);
       }
+    enqueue(user) {
+      this.list.push(user);
     }
   
     // Remove a user from the front of the queue
     dequeue() {
-      return this.queue.shift();
+      return this.list.shift();
     }
   
     // Convert the queue of users to JSON
     toJSON() {
-      return JSON.stringify(this.queue.map(user => ({
-        name: user.getName(),
-        id: user.getId(),
-        username: user.getUsername(),
-        password: user.getPassword(),
-        dateOfBirth: user.getDateOfBirth()
-      })));
+      return JSON.stringify("{ \"users\" : [" + this.list.map(user => ({
+        name: user.name,
+        id: user.healthNumber,
+        username: user.username,
+        password: user.password,
+        dateOfBirth: user.dateOfBirth
+      })) + "]}");
     }
   
     // Create a UserQueue from JSON
     static fromJSON(json) {
       const data = JSON.parse(json);
       const userQueue = new UserQueue();
-      data.forEach(userData => {
+      data.users.forEach(userData => {
         userQueue.enqueue(new User(
           userData.name,
           userData.id,
@@ -69,5 +51,3 @@ class UserQueue {
       return userQueue;
     }
 }
-
-module.exports = { User, UserQueue };
