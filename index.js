@@ -1,5 +1,6 @@
 const express = require('express');
 const { User, UserQueue } = require('./model/user');
+const { fromJSON } = require('./model/clinic');
 
 const app = express();
 app.use(express.json());
@@ -7,6 +8,10 @@ app.use(express.json());
 const port = process.env.PORT || 3000;
 
 const userQueue = new UserQueue();
+const clinicList = fromJSON("./database/clinics.json")
+
+console.log(clinicList);
+
 app.get('/', (req, res) => {
   res.send('Hello, world!');
 });

@@ -1,0 +1,11 @@
+[
+    {"_name":"Pacific Medical Clinic","_locationId":1,"_xCoord":49.24963194845172,"_yCoord":-123.05350046097058},
+    {"_name":"Simply Wellness Medical","_locationId":2,"_xCoord":49.24873550454424,"_yCoord":-123.0569336884377},
+    {"_name":"Commercial Drive Medical Clinic","_locationId":3,"_xCoord":49.27472576964362,"_yCoord":-123.04972391075674},
+    {"_name":"Fraser Care Clinic","_locationId":4,"_xCoord":49.22200594704365,"_yCoord":-123.08761855812058},
+    {"_name":"Southeast Urgent and Primary Care Centre","_locationId":5,"_xCoord":49.233717649332995,"_yCoord":-123.07444314852002},
+    {"_name":"WELL Health Medical Centres","_locationId":6,"_xCoord":49.284804515218056,"_yCoord":-123.0483506197699},
+    {"_name":"East Van Medical Clinic","_locationId":7,"_xCoord":49.23797690801422,"_yCoord":-123.07581643950685},
+    {"_name":"Care Point Medical Clinic","_locationId":8,"_xCoord":49.241339221225104,"_yCoord":-123.01985483179283},
+    {"_name":"Keefer Walk-in and Medical Clinic","_locationId":9,"_xCoord":49.28424498529289,"_yCoord":-123.10313815382783}
+]
