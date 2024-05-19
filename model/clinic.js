@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { UserQueue } = require('./user');
 
 class Clinic {
     constructor(name, locationId, xCoord, yCoord) {
@@ -6,6 +7,7 @@ class Clinic {
         this._locationId = locationId;
         this._xCoord = xCoord;
         this._yCoord = yCoord;
+        this._userQueue = new UserQueue();
     }
 
     static fromJSON(filePath) {
@@ -23,6 +25,15 @@ class Clinic {
             console.error('Error reading or parsing file:', err);
             return [];
         }
+    }
+
+    static getClinicByID(clinics, id) {
+        for (const clinic of clinics) {
+            if (clinic._locationId == id) {
+                return clinic;
+            }
+        }
+        return null;
     }
 }
 

@@ -1,6 +1,6 @@
 const express = require('express');
 const { User, UserQueue } = require('./model/user');
-const { fromJSON } = require('./model/clinic');
+const { fromJSON, getClinicByID } = require('./model/clinic');
 
 const app = express();
 app.use(express.json());
@@ -19,8 +19,6 @@ app.get('/', (req, res) => {
 app.post('/create', (req, res) => {
   const { name, id, username, password, dateOfBirth } = req.body;
 
-  console.log(req.body);
-
   if (!name || !id || !username || !password || !dateOfBirth) {
     return res.status(400).send('Missing user information');
   }
@@ -29,6 +27,19 @@ app.post('/create', (req, res) => {
   userQueue.enqueue(user);
 
   res.status(201).send('User ' + id + ' added to the queue');
+});
+
+app.post('/enqueue', (req, res) => {
+  const { userId, clinicIds } = req.body;
+
+  if (!userId || !clinicIds) {
+    return res.status(400).send('Missing user information');
+  }
+
+  for (const id of clinicIds) {
+    clinic = getClinicByID(clinicList, id);
+    // enqueue the user to the clinic's queue
+  }
 });
 
 app.listen(port, () => {
