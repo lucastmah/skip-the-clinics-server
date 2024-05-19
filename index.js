@@ -54,6 +54,10 @@ app.post('/dequeue', (req, res) => {
   return res.status(200).send("Dequeued user at clinic " + clinicId + '.');
 });
 
+app.get('/locations', (req, res) => {
+  return res.status(200).send(clinicList);
+})
+
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
