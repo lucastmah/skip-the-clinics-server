@@ -43,6 +43,17 @@ app.post('/enqueue', (req, res) => {
   return res.status(201).send("Enqueued user " + userId + '.');
 });
 
+app.post('/dequeue', (req, res) => {
+  const clinicId = req.body.clinicId;
+
+  clinic = getClinicByID(clinicList, clinicId);
+  if (clinic != null) {
+    clinic.dequeueUser();
+  }
+
+  return res.status(200).send("Dequeued user at clinic " + clinicId + '.');
+});
+
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });

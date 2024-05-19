@@ -31,8 +31,10 @@ class UserQueue {
     }
   
     // Add a user to the end of the queue
-    enqueue(user) {
-      this.queue.push(user);
+    enqueue(userId) {
+      if (!this.queue.includes(userId)) {
+        this.queue.push(userId);
+      }
     }
   
     // Remove a user from the front of the queue

@@ -14,6 +14,10 @@ class Clinic {
         this._userQueue.enqueue(userId);
     }
 
+    dequeueUser() {
+        this._userQueue.dequeue();
+    }
+
     static fromJSON(filePath) {
         try {
             const jsonData = fs.readFileSync(filePath, 'utf8');
