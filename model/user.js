@@ -1,12 +1,20 @@
-export class User {
+class User {
   constructor(options = {}) {
     Object.assign(this, options);
   }
 }
 
-export class UserQueue {
+class UserQueue {
     constructor() {
       this.list = [];
+    }
+    
+    show() {
+      console.log(this.list);
+    }
+
+    size() {
+      return this.list.length;
     }
   
     // Add a user to the end of the queue
@@ -15,7 +23,7 @@ export class UserQueue {
         this.queue.push(userId);
       }
     }
-    
+
     enqueue(user) {
       this.list.push(user);
     }
@@ -23,6 +31,13 @@ export class UserQueue {
     // Remove a user from the front of the queue
     dequeue() {
       return this.list.shift();
+    }
+
+    remove(val) {
+      const index = this.list.indexOf(val);
+      if (index > -1) { // only splice array when item is found
+        this.list.splice(index, 1); // 2nd parameter means remove one item only
+      }
     }
   
     // Convert the queue of users to JSON
@@ -52,3 +67,5 @@ export class UserQueue {
       return userQueue;
     }
 }
+
+module.exports = {User, UserQueue};
