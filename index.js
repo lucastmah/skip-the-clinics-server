@@ -10,8 +10,6 @@ const port = process.env.PORT || 3000;
 const userQueue = new UserQueue();
 const clinicList = fromJSON("./database/clinics.json")
 
-console.log(clinicList);
-
 app.get('/', (req, res) => {
   res.send('Hello, world!');
 });
@@ -38,8 +36,11 @@ app.post('/enqueue', (req, res) => {
 
   for (const id of clinicIds) {
     clinic = getClinicByID(clinicList, id);
-    // enqueue the user to the clinic's queue
+    if (clinic != null) {
+      clinic.enqueueUser(userId);
+    }
   }
+  return res.status(201).send("Enqueued user " + userId + '.');
 });
 
 app.listen(port, () => {

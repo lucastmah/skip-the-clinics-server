@@ -10,6 +10,10 @@ class Clinic {
         this._userQueue = new UserQueue();
     }
 
+    enqueueUser(userId) {
+        this._userQueue.enqueue(userId);
+    }
+
     static fromJSON(filePath) {
         try {
             const jsonData = fs.readFileSync(filePath, 'utf8');
