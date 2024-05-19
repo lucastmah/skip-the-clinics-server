@@ -1,6 +1,5 @@
 export class User {
-  construc
-  tor(options = {}) {
+  constructor(options = {}) {
     Object.assign(this, options);
   }
 }
@@ -15,6 +14,8 @@ export class UserQueue {
       if (!this.queue.includes(userId)) {
         this.queue.push(userId);
       }
+    }
+    
     enqueue(user) {
       this.list.push(user);
     }
